@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: black;
+        }
+        
+        h1 {
+            text-align: center;
+            color: aliceblue;
+        }
+        .container {
+            position: relative;
+            top: 150px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .del-form {
+            position: relative;
+            left: 390px;
+            bottom: 67px;
+        }
+        .btn {
+            size: 10;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Shopping Calculator</h1>
+        <div class="calc-form">
+            <form action="" method="post">
+                {{form.hidden_tag()}}
+                {{form.num_input(class="form-control form-control-lg")}} <br>
+            </form>
+        </div>
+        <div class="del-form">
+            <form action="{{url_for('delete')}}" method="post">
+                {{del_form.hidden_tag()}}
+                {{del_form.del_btn(class="btn btn-outline-danger")}}
+            </form>
+        </div>
+       
+        <h1>Total: ${{session["lst"]}}</h1> 
+    </div>
+</body>
+</html>
